@@ -18,7 +18,7 @@ echo "mysql-server mysql-server/root_password_again password root" | debconf-set
 sudo apt-get install -y mysql-server
 
 echo "Install PHP"
-sudo apt-get install -y php7.1 php7.1-cli php7.1-mbstring php7.1-xml
+sudo apt-get install -y php7.1 php7.1-cli php7.1-mbstring php7.1-xml php7.1-gettext
 
 echo "Install Utilities"
 sudo apt-get install -y git unzip
@@ -28,6 +28,7 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 sudo mkdir /usr/local/bin/composer
 sudo mv ~/composer.phar /bin/composer
+sudo apt-get install -y phpmyadmin
 
 echo "Restart Server"
 sudo systemctl restart apache2
